@@ -1,0 +1,147 @@
+#!/bin/sh
+
+outdir=${OUTDIR:-build}
+DKPDIR=${DKPDIR:-/opt/devkitpro}
+MAKE=${MAKE:-$(command -v make)}
+LDFLAGS=${LDFLAGS:--C}
+
+printf "Checking for cc65... \n"
+AS=$(command -v ca65)
+printf "\tca65... "
+if [ -n "$AS" ]
+then
+	echo yes
+else
+	echo no
+fi
+
+LD=$(command -v ld65)
+printf "\tld65... "
+if [ -n "$LD" ]
+then
+	echo yes
+else
+	echo no
+fi
+
+printf "Checking for mtools... \n"
+MFORMAT=$(command -v mformat)
+printf "\tmformat... "
+if [ -n "$MFORMAT" ]
+then
+	echo yes
+else
+	echo no
+fi
+
+MCOPY=$(command -v mcopy)
+printf "\tmcopy... "
+if [ -n "$MCOPY" ]
+then
+	echo yes
+else
+	echo no
+fi
+
+printf "Checking for devkitARM... "
+if [ -f $DKPDIR/devkitARM/gba_rules ]
+then
+	ARMBIN=$DKPDIR/devkitARM/bin/arm-none-eabi-
+	if [ -x ${ARMBIN}gcc ]
+	then
+		if [ -x ${ARMBIN}g++ ]
+		then
+			if [ -x ${ARMBIN}as ]
+			then
+				echo yes
+			else
+				echo no
+			fi
+		else
+			echo no
+		fi
+	else
+		echo no
+	fi
+else
+	echo no
+fi
+
+printf "Checking for devkitPPC... "
+if [ -f $DKPDIR/devkitPPC/gamecube_rules ]
+then
+	if [ -f $DKPDIR/devkitPPC/wii_rules ]
+	then
+		PPCBIN=$DKPDIR/devkitPPC/bin/powerpc-eabi-
+		if [ -x ${PPCBIN}gcc ]
+		then
+			if [ -x ${PPCBIN}g++ ]
+			then
+				if [ -x ${PPCBIN}as ]
+				then
+					echo yes
+				else
+					echo no
+				fi
+			else
+				echo no
+			fi
+		else
+			echo no
+		fi
+	else
+		echo no
+	fi
+else
+	echo no
+fi
+
+printf "Checking devkitpro portlibs for\n"
+PORTDIR=$DKPDIR/portlibs/ppc/include
+printf "\tppc-freetype... "
+if [ -f $PORTDIR/freetype2/ft2build.h ]
+then
+	echo yes
+else 
+	echo no
+fi
+
+printf "\tppc-mxml... "
+if [ -f $PORTDIR/mxml.h ]
+then
+	echo yes
+else 
+	echo no
+fi
+
+printf "\tppc-libvorbisidev... "
+if [ -f $PORTDIR/tremor/ivorbiscodec.h ]
+then
+	echo yes
+else
+	echo no
+fi
+DEFAULT=$(command -v make)
+if [ "$MAKE" = "$DEFAULT" ]
+then
+	GMAKE=$(command -v gmake)
+	if [ -n "$GMAKE" ]
+	then
+		MAKE=gmake
+	fi
+fi
+
+printf "Creating %s/config.mk... " "$outdir"
+if [ ! -d $outdir ]
+then
+	mkdir $outdir
+fi
+cat <<EOF > "$outdir"/config.mk
+MAKE=${MAKE}
+DKPDIR=${DKPDIR}
+AS=${AS}
+LD=${LD}
+LDFLAGS=${LDFLAGS}
+EOF
+
+echo done

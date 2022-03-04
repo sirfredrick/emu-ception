@@ -1,0 +1,64 @@
+Unless you have a POSIX compliant OS with access to GNU make and devkitpro and
+know how to compile software from source then just use the prebuilt files. Since
+they are run in an emulator this will work on any operating system that can run 
+dolphin-emu.
+
+Emu-ception A 4 layer deep emulation experience AKA the best way to play PONG
+
+This project consists of NES-CHIP-8 a CHIP-8 emulator for the NES, PocketNES a
+NES emulator for the GBA, and VBA GX a GBA emulator for the Gamecube and Wii.
+
+Running
+
+The easiest way to run this project is to move the sd.raw file into the Wii
+directory inside the dolphin emulator directory. The default location for this
+is "C:\\Users\<Username>\Documents\Dolphin Emulator\Wii" on Windows,
+"~/Library/Application Support/Dolphin/Wii" on macOS, and
+"~/.local/share/dolphin-emu/Wii" or "~/.dolphin-emu/Wii" on Linux.
+
+Then go to Config->Audio->DSP Emulator Engine and select DSP LLE recompiler so
+you can listen to the sick tunes!
+
+Next, click on Open and select the vbagx-wii.elf file you should now be booted
+into the VBA GX emulator. Next, navigate to your SD card and select the chip.gba
+file to start playing PONG!
+
+Building
+
+See INSTALL for details.
+
+Contributing
+
+If you'd like to contribute, please fork this repository and make a pull
+request, they are warmly welcome.
+
+Links
+
+Repository: https://github.com/sirfredrick/emu-ception
+Issue tracker: https://github.com/sirfredrick/emu-ception/issues
+Emulators used:
+	* NES-CHIP-8 by NovaSquirrel https://github.com/NovaSquirrel/NES-CHIP-8
+	  zlib License with modifications by sirfredrick
+	* PocketNES originally by loopy and flubba
+	  https://web.archive.org/web/20120427045643/http://www.pocketnes.org/
+	  Public Domain with miniLZO under GPLv2 or later
+	  used with modifications by catskull https://github.com/catskull/pocketnes
+	* VBA GX by Tantric and contributors 
+	  https://github.com/dborth/vbagx GPLv3
+	* Dolphin Emulator by many contributors
+	  https://github.com/dolphin-emu/dolphin GPLv3
+
+emu-ception A 4 layer deep emulation experience AKA the best way to play PONG
+Copyright 2021-2022 Jeffrey Tucker
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of version 3 of the GNU General Public License as 
+published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.

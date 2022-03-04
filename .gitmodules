@@ -1,0 +1,9 @@
+[submodule "NES-CHIP-8"]
+	path = NES-CHIP-8
+	url = https://github.com/sirfredrick/NES-CHIP-8
+[submodule "pocketnes"]
+	path = pocketnes
+	url = https://github.com/catskull/pocketnes
+[submodule "vbagx"]
+	path = vbagx
+	url = https://github.com/dborth/vbagx
