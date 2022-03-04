@@ -22,8 +22,8 @@ pocketnes/pocketnes.gba:
 	cd pocketnes && env DEVKITPRO=$(DKPDIR) DEVKITARM=$(DKPDIR)/devkitARM $(MAKE)
 NES-CHIP-8/chip.nes: NES-CHIP-8/chip.o NES-CHIP-8/nrom128.x
 	$(LD) $(LDFLAGS) NES-CHIP-8/nrom128.x NES-CHIP-8/chip.o -o $@
-NES-CHIP-8/chip.o: NES-CHIP-8/chip.s NES-CHIP-8/chip.lst NES-CHIP-8/pong.ch8
-	$(AS) NES-CHIP-8/chip.s -l NES-CHIP-8/chip.lst -o $@
+NES-CHIP-8/chip.o: NES-CHIP-8/chip.s NES-CHIP-8/pong.ch8
+	$(AS) NES-CHIP-8/chip.s -o $@
 clean:
 	rm -f NES-CHIP-8/*.o NES-CHIP-8/*.nes
 	cd pocketnes && env DEVKITPRO=$(DKPDIR) DEVKITARM=$(DKPDIR)/devkitARM $(MAKE) clean
