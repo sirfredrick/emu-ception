@@ -1,6 +1,6 @@
 Unless you have a POSIX compliant OS with access to GNU make and devkitpro and
 know how to compile software from source then just use the prebuilt files. Since
-they are run in an emulator this will work on any operating system that can run 
+they are run in an emulator this will work on any operating system that can run
 dolphin-emu.
 
 Emu-ception A 4 layer deep emulation experience AKA the best way to play PONG
@@ -43,16 +43,17 @@ Emulators used:
 	  https://web.archive.org/web/20120427045643/http://www.pocketnes.org/
 	  Public Domain with miniLZO under GPLv2 or later
 	  used with modifications by catskull https://github.com/catskull/pocketnes
-	* VBA GX by Tantric and contributors 
-	  https://github.com/dborth/vbagx GPLv3
+	* VBA GX by Tantric and contributors
+	  https://github.com/dborth/vbagx GPLv2 (updated due to clarification by
+	  developer)
 	* Dolphin Emulator by many contributors
-	  https://github.com/dolphin-emu/dolphin GPLv3
+	  https://github.com/dolphin-emu/dolphin GPLv2 or later
 
 emu-ception A 4 layer deep emulation experience AKA the best way to play PONG
 Copyright 2021-2022 Jeffrey Tucker
 
 This program is free software: you can redistribute it and/or modify
-it under the terms of version 3 of the GNU General Public License as 
+it under the terms of version 2 of the GNU General Public License as
 published by the Free Software Foundation.
 
 This program is distributed in the hope that it will be useful,
